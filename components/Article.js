@@ -164,9 +164,9 @@ function articleMaker(articleObj) {
   Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
   */
 
-//  data.forEach(object => {
-//   articles.appendChild(articleMaker(object))
-// })
+ data.forEach(object => {
+  articles.appendChild(articleMaker(object))
+})
   
   /*
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
@@ -180,11 +180,13 @@ const newArticle = {
   thirdParagraph: 'another something'
 }
 
-data.push(newArticle)
 
-// console.log(data)
+articles.appendChild(articleMaker(newArticle))
+
+/*This is the way I originally did it
+data.push(newArticle)
 
 data.forEach(object => {
   articles.appendChild(articleMaker(object))
 })
-
+*/
