@@ -104,7 +104,7 @@ const data = [
   Your function should take either an object as its one argument, or 5 separate strings mapping to each property of an article object.
 */
 const articles = document.querySelector('.articles');
-console.log(articles);
+// console.log(articles);
 
 function articleMaker(articleObj) {
   const articleDiv = document.createElement('div');
@@ -164,7 +164,9 @@ function articleMaker(articleObj) {
   Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
   */
 
-
+//  data.forEach(object => {
+//   articles.appendChild(articleMaker(object))
+// })
   
   /*
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
@@ -180,7 +182,7 @@ const newArticle = {
 
 data.push(newArticle)
 
-console.log(data)
+// console.log(data)
 
 data.forEach(object => {
   articles.appendChild(articleMaker(object))
