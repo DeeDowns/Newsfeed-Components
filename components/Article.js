@@ -115,17 +115,21 @@ function articleMaker(articleObj) {
   const articleParagraph3 = document.createElement('p')
   const expandButton = document.createElement('span');
 
-  console.log(articleDiv)
-  console.log(articleTitle)
-  console.log(articleDate)
-  console.log(articleParagraph1)
-  console.log(articleParagraph2)
-  console.log(articleParagraph3)
-  console.log(expandButton)
+  // console.log(articleDiv)
+  // console.log(articleTitle)
+  // console.log(articleDate)
+  // console.log(articleParagraph1)
+  // console.log(articleParagraph2)
+  // console.log(articleParagraph3)
+  // console.log(expandButton)
 
   articleDiv.appendChild(articleTitle);
   articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(articleParagraph1);
+  articleDiv.appendChild(articleParagraph2);
+  articleDiv.appendChild(articleParagraph3);
   articleDiv.appendChild(expandButton);
+  
 
   articleDiv.className = 'article';
   articleDate.className = 'date';
@@ -136,12 +140,13 @@ function articleMaker(articleObj) {
   articleParagraph1.textContent = articleObj.firstParagraph
   articleParagraph2.textContent = articleObj.secondParagraph
   articleParagraph3.textContent = articleObj.thirdParagraph
+  expandButton.textContent = '+'
 /*
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
 */
 
   expandButton.addEventListener('click', () => {
-    expandButton.classList.toggle('article-open')
+    articleDiv.classList.toggle('article-open')
   })
 
   /*
@@ -152,17 +157,32 @@ function articleMaker(articleObj) {
 
 }
 
-console.log(articleMaker(data))
+// articleMaker(data)
 
 
   /*
   Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
   */
 
-  data.forEach(object => {
-    articles.appendChild(articleMaker(object))
-  })
+
   
   /*
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+const newArticle = {
+  title: 'hi',
+  date: 'Jul 8th 2020',
+  firstParagraph: 'something',
+  secondParagraph: 'something else',
+  thirdParagraph: 'another something'
+}
+
+data.push(newArticle)
+
+console.log(data)
+
+data.forEach(object => {
+  articles.appendChild(articleMaker(object))
+})
+
